@@ -2,7 +2,7 @@ const UserService = require('../service/UserService')
 
 const userService = new UserService()
 
-module.exports.registerUser = (req, res) => {
+module.exports.registerUser = async (req, res) => {
     try {
         const userData = {
             firstName: req.body.firstName,
@@ -10,11 +10,7 @@ module.exports.registerUser = (req, res) => {
             password: req.body.password,
             contactNum: req.body.contactNum,
         }
-
-
-        const user = userService.createUser(userData)
-
-        user.save()
+        const user = await userService.createUser(userData)
 
         res.json(user)
 
