@@ -1,8 +1,8 @@
-const UserDao = require('../DAO/UserDao')
+const userDao = require('../DAO/UserDao')
 
 class UserService {
     constructor() {
-        this.UserDao = new UserDao()
+        this.userDao = new userDao()
     }
 
     async createUser(userData) {
