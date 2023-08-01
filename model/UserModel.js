@@ -11,7 +11,8 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        min: 8
     },
     contactNum: {
         type:String,
@@ -20,7 +21,8 @@ const userSchema = new mongoose.Schema({
     userCreatedAt: {
         type: Date,
         default: Date.now()
-    }
+    },
+
 })
 
 const User = mongoose.model('User', userSchema);
