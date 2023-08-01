@@ -10,6 +10,7 @@ module.exports.registerUser = async (req, res) => {
             password: req.body.password,
             contactNum: req.body.contactNum,
         }
+
         const user = await userService.createUser(userData)
 
         res.json(user)
