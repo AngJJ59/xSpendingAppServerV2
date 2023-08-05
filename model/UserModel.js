@@ -22,6 +22,11 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     },
+    userAddress: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Address',
+        required: true
+    }
 })
 
 const User = mongoose.model('User', userSchema);
