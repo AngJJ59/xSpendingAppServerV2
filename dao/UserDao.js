@@ -17,7 +17,7 @@ class UserDao {
         return User.findByIdAndDelete(userId)
     }
 
-    async getAllUsers() {
+    async getUsers() {
         return User.find()
     }
 }
