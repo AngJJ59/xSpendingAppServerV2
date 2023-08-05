@@ -2,6 +2,8 @@ const mongoose = require('mongoose')
 const express = require('express')
 const cors = require('cors')
 
+const userRoutes = require('./routes/UserRoute')
+
 const app = express()
 
 require('dotenv').config()
@@ -20,6 +22,8 @@ mongoose
     .catch((err) => {
         console.log(err.message)
     })
+
+app.use('/api', userRoutes)
 
 app.listen(process.env.PORT, () => {
     console.log(`server started on ${process.env.PORT}`)
