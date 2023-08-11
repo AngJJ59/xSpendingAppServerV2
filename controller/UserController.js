@@ -64,3 +64,11 @@ module.exports.deleteUser = async (req, res) => {
         console.log(err.message)
     }
 }
+
+module.exports.createAddress = async (req, res) => {
+    try {
+        
+    } catch(err) {
+        
+    }
+}
