@@ -2,7 +2,12 @@ const Address = require('../model/AddressModel')
 
 class AddressDao {
     async createAddress(AddressData) {
-        return Address.create(AddressData)
+        const createdAddress = await Address.create(AddressData)
+        return createdAddress
+    }
+
+    async getAddress(addressId) {
+        return Address.findById(addressId)
     }
 
     async updateAddress(addressId, newData) {

@@ -1,14 +1,25 @@
 const UserService = require('../service/UserService')
+const AddressService = require('../service/AddressService')
 
 const userService = new UserService()
+const addressService = new AddressService()
 
 module.exports.registerUser = async (req, res) => {
     try {
+        const addressData = {
+            street: req.body.street,
+            city: req.body.city,
+            zipCode: req.body.zipCode
+        }
+
+        const userAddress = await addressService.createAddress(addressData);
+        
         const userData = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             password: req.body.password,
             contactNum: req.body.contactNum,
+            userAddress: userAddress._id
         }
 
         const user = await userService.createUser(userData)

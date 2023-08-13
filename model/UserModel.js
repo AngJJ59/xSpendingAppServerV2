@@ -24,8 +24,7 @@ const userSchema = new mongoose.Schema({
     },
     userAddress: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Address',
-        required: true
+        ref: 'Address'
     }
 })
 
