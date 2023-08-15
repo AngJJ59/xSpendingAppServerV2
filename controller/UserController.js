@@ -19,7 +19,7 @@ module.exports.registerUser = async (req, res) => {
             lastName: req.body.lastName,
             password: req.body.password,
             contactNum: req.body.contactNum,
-            userAddress: userAddress._id
+            userAddress: userAddress
         }
 
         const user = await userService.createUser(userData)
