@@ -6,7 +6,7 @@ class UserDao {
     }
 
     async getUserById(userId) {
-        return User.findById(userId)
+        return User.findById(userId).populate('userAddress')
     }
 
     async updateUser(userId, userData) {
@@ -18,7 +18,7 @@ class UserDao {
     }
 
     async getUsers() {
-        return User.find()
+        return User.find().populate('userAddress')
     }
 }
 
