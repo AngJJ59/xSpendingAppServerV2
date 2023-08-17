@@ -20,6 +20,10 @@ class UserDao {
     async getUsers() {
         return User.find()
     }
+
+    addSpendingItem() {
+        return User
+    }
 }
 
 module.exports = UserDao

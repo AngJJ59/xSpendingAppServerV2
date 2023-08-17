@@ -11,7 +11,7 @@ module.exports.registerUser = async (req, res) => {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             password: req.body.password,
-            contactNum: req.body.contactNum,
+            contactNum: req.body.contactNum
         }
 
         const user = await userService.createUser(userData)
@@ -78,6 +78,8 @@ module.exports.createSpendingItem = (req, _res) => {
         }
         
         spendingController.createSpendingItem(spendingItemData)
+
+        
     } catch(err) {
         console.log(err.message)
     }
