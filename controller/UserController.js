@@ -1,6 +1,9 @@
 const UserService = require('../service/UserService')
+const SpendingItemController = require('../controller/SpendingItemController')
 
 const userService = new UserService()
+const spendingController = new SpendingItemController()
+
 
 module.exports.registerUser = async (req, res) => {
     try {
@@ -60,6 +63,21 @@ module.exports.deleteUser = async (req, res) => {
         const userToDelete = await userService.deleteUser(req.params.uniqueIdentifier)
 
         res.json(userToDelete)
+    } catch(err) {
+        console.log(err.message)
+    }
+}
+
+module.exports.createSpendingItem = (req, _res) => {
+    try {
+        const spendingItemData = {
+            title: req.body.title,
+            description: req.body.description,
+            amount: req.body.amount,
+            spendingDate: req.body.spendingDate 
+        }
+        
+        spendingController.createSpendingItem(spendingItemData)
     } catch(err) {
         console.log(err.message)
     }
