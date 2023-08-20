@@ -9,7 +9,7 @@ const spendingItemSchema = new mongoose.Schema({
         type: String
     },
     amount: {
-        type: number,
+        type: Number,
         required: true
     },
     spendingDate: {
@@ -19,6 +19,6 @@ const spendingItemSchema = new mongoose.Schema({
     }
 })
 
-const SpendingItem = mongoose.model('SpendingItem', spendingItemSchema, 'spendingitems')
+const SpendingItem = mongoose.model('SpendingItem', spendingItemSchema, 'spendingItems')
 
 module.exports = SpendingItem

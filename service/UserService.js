@@ -24,6 +24,10 @@ class UserService {
     async deleteUser(userId) {
         return this.userDao.deleteUser(userId);
     }
+
+    addSpendingItem(spendingData) {
+        return this.userDao.addSpendingItem(spendingData)
+    }
 }
 
 module.exports = UserService

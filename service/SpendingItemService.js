@@ -1,28 +1,28 @@
-const SpendingItemDao = require('../DAO/SpendingItemDao')
+const spendingItemDao = require('../DAO/SpendingItemDao')
 
 class SpendingItemService {
     constructor() {
-        this.SpendingItemDao = SpendingItemDao
+        this.spendingItemDao = new spendingItemDao()
     }
 
     async createSpendingItem(spendingItemData) {
-        return this.SpendingItemDao.createSpendingItem(spendingItemData);
+        return this.spendingItemDao.createSpendingItem(spendingItemData);
     }
     
     async getSpendingItemById(spendingItemId) {
-        return this.SpendingItemDao.getSpendingItemById(spendingItemId);
+        return this.spendingItemDao.getSpendingItemById(spendingItemId);
     }
 
     async getSpendingItems() {
-        return this.SpendingItemDao.getSpendingItems();
+        return this.spendingItemDao.getSpendingItems();
     }
 
     async updateSpendingItem(spendingItemId, spendingItemData) {
-        return this.SpendingItemDao.updateSpendingItem(spendingItemId, spendingItemData);
+        return this.spendingItemDao.updateSpendingItem(spendingItemId, spendingItemData);
     }
 
     async deleteSpendingItem(spendingItemId) {
-        return this.SpendingItemDao.deleteSpendingItem(spendingItemId);
+        return this.spendingItemDao.deleteSpendingItem(spendingItemId);
     }
 }
 

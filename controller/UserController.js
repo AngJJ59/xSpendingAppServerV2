@@ -68,7 +68,7 @@ module.exports.deleteUser = async (req, res) => {
     }
 }
 
-module.exports.createSpendingItem = (req, _res) => {
+module.exports.addSpendingItem = async (req, res) => {
     try {
         const spendingItemData = {
             title: req.body.title,
@@ -76,10 +76,9 @@ module.exports.createSpendingItem = (req, _res) => {
             amount: req.body.amount,
             spendingDate: req.body.spendingDate 
         }
-        
-        spendingController.createSpendingItem(spendingItemData)
 
-        
+        const spendingItem = await spendingController.createSpendingItem(spendingItemData)
+        res.json(spendingItem)
     } catch(err) {
         console.log(err.message)
     }

@@ -21,8 +21,8 @@ class UserDao {
         return User.find()
     }
 
-    addSpendingItem() {
-        return User
+    addSpendingItem(spendingItem) {
+        User.spendingItems.push(spendingItem)
     }
 }
 
