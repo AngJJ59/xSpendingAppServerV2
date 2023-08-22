@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
     spendingItems: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'SpendingItem'
+            ref: 'SpendingItems'
         }
     ]
 })

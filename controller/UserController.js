@@ -69,6 +69,9 @@ module.exports.deleteUser = async (req, res) => {
 }
 
 module.exports.addSpendingItem = async (req, res) => {
+    const user = req.params.uniqueIdentifier
+    console.log(user)
+    console.log(res)
     try {
         const spendingItemData = {
             title: req.body.title,
@@ -78,8 +81,9 @@ module.exports.addSpendingItem = async (req, res) => {
         }
 
         const spendingItem = await spendingController.createSpendingItem(spendingItemData)
-        await userService.addSpendingItem(res._id)
-        res.json(spendingItem)
+        console.log(spendingItem) // problem here spendingItem is null
+        await userService.addSpendingItem(user,spendingItem) // cannot get id
+
     } catch(err) {
         console.log(err.message)
     }

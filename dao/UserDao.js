@@ -21,8 +21,13 @@ class UserDao {
         return User.find().populate('spendingItems')
     }
 
-    addSpendingItem(spendingItem) {
-        User.spendingItems.push(spendingItem)
+    async addSpendingItem(userId, spendingItem) {
+        return User.findByIdAndUpdate(
+            userId,
+            {$push: {spendingItems: spendingItem._id}},
+            {new : true}
+        )
+        
     }
 }
 

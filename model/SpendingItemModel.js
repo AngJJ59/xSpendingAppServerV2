@@ -19,6 +19,6 @@ const spendingItemSchema = new mongoose.Schema({
     }
 })
 
-const SpendingItem = mongoose.model('SpendingItem', spendingItemSchema, 'spendingItems')
+const SpendingItem = mongoose.model('SpendingItems', spendingItemSchema, 'spendingItems')
 
 module.exports = SpendingItem

@@ -25,8 +25,8 @@ class UserService {
         return this.userDao.deleteUser(userId);
     }
 
-    addSpendingItem(spendingData) {
-        return this.userDao.addSpendingItem(spendingData)
+    async addSpendingItem(user, spendingDataId) {
+        return this.userDao.addSpendingItem(user, spendingDataId)
     }
 }
 
