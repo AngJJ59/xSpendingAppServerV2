@@ -3,7 +3,8 @@ const {
     getAllUsers,
     deleteUser,
     getUserById,
-    updateUserData
+    updateUserData,
+    addSpendingItem
 
 } = require('../controller/UserController')
 
@@ -14,5 +15,7 @@ router.get('/user/users', getAllUsers)
 router.get('/user/getUser/:uniqueIdentifier', getUserById)
 router.delete('/user/deleteUser/:uniqueIdentifier', deleteUser)
 router.put('/user/updateUser/:uniqueIdentifier', updateUserData)
+
+router.post('/:uniqueIdentifier/spendingitem/new', addSpendingItem)
 
 module.exports = router

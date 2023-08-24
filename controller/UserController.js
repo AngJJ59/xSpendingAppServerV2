@@ -1,6 +1,9 @@
 const UserService = require('../service/UserService')
+const SpendingItemController = require('../controller/SpendingItemController')
 
 const userService = new UserService()
+const spendingController = new SpendingItemController()
+
 
 module.exports.registerUser = async (req, res) => {
     try {
@@ -8,7 +11,7 @@ module.exports.registerUser = async (req, res) => {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             password: req.body.password,
-            contactNum: req.body.contactNum,
+            contactNum: req.body.contactNum
         }
 
         const user = await userService.createUser(userData)
@@ -60,6 +63,27 @@ module.exports.deleteUser = async (req, res) => {
         const userToDelete = await userService.deleteUser(req.params.uniqueIdentifier)
 
         res.json(userToDelete)
+    } catch(err) {
+        console.log(err.message)
+    }
+}
+
+module.exports.addSpendingItem = async (req, res) => {
+    const user = req.params.uniqueIdentifier
+
+    try {
+        const spendingItemData = {
+            title: req.body.title,
+            description: req.body.description,
+            amount: req.body.amount,
+            spendingDate: req.body.spendingDate 
+        }
+
+        const spendingItem = await spendingController.createSpendingItem(spendingItemData)
+
+        await userService.addSpendingItem(user,spendingItem._id)
+        res.json(spendingItem) 
+
     } catch(err) {
         console.log(err.message)
     }

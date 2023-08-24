@@ -22,6 +22,12 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     },
+    spendingItems: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'SpendingItems'
+        }
+    ]
 })
 
 const User = mongoose.model('User', userSchema);
