@@ -9,9 +9,9 @@ class SpendingItemController {
 
     createSpendingItem = async (spendingData) => {
         try {
-             await spendingItemService.createSpendingItem(spendingData)
+             return await spendingItemService.createSpendingItem(spendingData)  
         } catch(err) {
-            console.log(err.message)
+            return err.message
         }
     }
 

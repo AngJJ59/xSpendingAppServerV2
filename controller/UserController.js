@@ -81,8 +81,9 @@ module.exports.addSpendingItem = async (req, res) => {
         }
 
         const spendingItem = await spendingController.createSpendingItem(spendingItemData)
-        console.log(spendingItem) // problem here spendingItem is null
-        await userService.addSpendingItem(user,spendingItem) // cannot get id
+        
+        await userService.addSpendingItem(user,spendingItem._id)
+        res.json(spendingItem) 
 
     } catch(err) {
         console.log(err.message)
