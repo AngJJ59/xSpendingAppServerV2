@@ -15,9 +15,9 @@ class SpendingItemController {
         }
     }
 
-    updateSpendingItem = async (spendingItemId) => {
+    updateSpendingItem = async (spendingItemId, updatedData) => {
         try {
-            return await spendingItemService.updateSpendingItem(spendingItemId)
+            return await spendingItemService.updateSpendingItem(spendingItemId, updatedData)
         } catch(err) {
             return err.message
         }

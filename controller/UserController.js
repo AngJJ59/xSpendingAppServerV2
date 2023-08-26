@@ -4,7 +4,6 @@ const SpendingItemController = require('../controller/SpendingItemController')
 const userService = new UserService()
 const spendingController = new SpendingItemController()
 
-
 module.exports.registerUser = async (req, res) => {
     try {
         const userData = {
@@ -84,6 +83,36 @@ module.exports.addSpendingItem = async (req, res) => {
         await userService.addSpendingItem(user,spendingItem._id)
         res.json(spendingItem) 
 
+    } catch(err) {
+        console.log(err.message)
+    }
+}
+
+module.exports.updateSpendingItem = async (req, res) => {
+    try { 
+        const data = req.body
+
+        const infoToUpdate = await spendingController.updateSpendingItem(
+            req.params.spendingItemUniqueIdentifier,
+            data
+        )
+        
+        if(!infoToUpdate) {
+            return res.status(404).json({error: 'User Not Found.'})
+        }
+
+        return res.status(200).json({message: 'Info Updated'})
+
+    } catch(err) {
+        console.log(err.message)
+    }
+}
+
+module.exports.deleteSpendingItem = async (req, res) => {
+    try {
+        const spendingItemToDelete = await spendingController.deleteSpendingItem(req.params.spendingItemUniqueIdentifier)
+
+        res.json(spendingItemToDelete)
     } catch(err) {
         console.log(err.message)
     }
