@@ -15,14 +15,29 @@ class SpendingItemController {
         }
     }
 
-    getSpendingItem = async (spendingItemId) => {
+    updateSpendingItem = async (spendingItemId, updatedData) => {
         try {
-            return await spendingItemService.getSpendingItemById(spendingItemId)
+            return await spendingItemService.updateSpendingItem(spendingItemId, updatedData)
         } catch(err) {
             return err.message
         }
     }
 
+    deleteSpendingItem = async(spendingItemId) => {
+        try {
+            return await spendingItemService.deleteSpendingItem(spendingItemId)
+        } catch(err) {
+            return err.message
+        }
+    }
+
+    getSpendingItems = async () => {
+        try {
+            return await spendingItemService.getSpendingItems()
+        } catch(err) {
+            return err.message
+        }
+    }
 }
 
 module.exports = SpendingItemController
