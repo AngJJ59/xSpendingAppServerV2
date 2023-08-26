@@ -15,6 +15,14 @@ class SpendingItemController {
         }
     }
 
+    getSpendingItem = async (spendingItemId) => {
+        try {
+            return await spendingItemService.getSpendingItemById(spendingItemId)
+        } catch(err) {
+            return err.message
+        }
+    }
+
 }
 
 module.exports = SpendingItemController
