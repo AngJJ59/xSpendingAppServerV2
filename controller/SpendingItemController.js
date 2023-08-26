@@ -31,14 +31,6 @@ class SpendingItemController {
         }
     }
 
-    getSpendingItem = async (spendingItemId) => {
-        try {
-            return await spendingItemService.getSpendingItemById(spendingItemId)
-        } catch(err) {
-            return err.message
-        }
-    }
-
     getSpendingItems = async () => {
         try {
             return await spendingItemService.getSpendingItems()
@@ -46,7 +38,6 @@ class SpendingItemController {
             return err.message
         }
     }
-
 }
 
 module.exports = SpendingItemController
