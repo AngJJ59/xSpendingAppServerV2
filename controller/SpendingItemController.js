@@ -15,9 +15,33 @@ class SpendingItemController {
         }
     }
 
+    updateSpendingItem = async (spendingItemId) => {
+        try {
+            return await spendingItemService.updateSpendingItem(spendingItemId)
+        } catch(err) {
+            return err.message
+        }
+    }
+
+    deleteSpendingItem = async(spendingItemId) => {
+        try {
+            return await spendingItemService.deleteSpendingItem(spendingItemId)
+        } catch(err) {
+            return err.message
+        }
+    }
+
     getSpendingItem = async (spendingItemId) => {
         try {
             return await spendingItemService.getSpendingItemById(spendingItemId)
+        } catch(err) {
+            return err.message
+        }
+    }
+
+    getSpendingItems = async () => {
+        try {
+            return await spendingItemService.getSpendingItems()
         } catch(err) {
             return err.message
         }
